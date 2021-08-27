@@ -231,7 +231,7 @@ import {
   getImagefromDataTransfer,
   parseMarkdown,
   getWordNumber,
-  parseEmoji,
+  parseEmojiPre,
   postComment,
 } from '../utils';
 
@@ -425,7 +425,7 @@ export default defineComponent({
             .replace('$2', wordNumber.value.toString())
         );
 
-      comment.comment = parseEmoji(comment.comment, emoji.value.map);
+      comment.comment = parseEmojiPre(comment.comment, emoji.value.map);
 
       if (props.replyId && props.rootId) {
         comment.pid = props.replyId;

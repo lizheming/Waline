@@ -6,12 +6,15 @@ import type { EmojiMaps } from '../config';
 const inlineMathRegExp = /\B\$([^\s$]|[^\s$][^\n$]*[^\s$])\$\B/g;
 const blockMathRegExp = /(^|\n)\$\$(.+?)\$\$(\n|$)/gs;
 
-export const parseEmoji = (text = '', emojiMap: EmojiMaps = {}): string =>
+export const parseEmojiPre = (text = '', emojiMap: EmojiMaps = {}): string =>
   text.replace(/:(.+?):/g, (placeholder, key: string) =>
     emojiMap[key]
-      ? `<img class="vemoji" src="${emojiMap[key]}" alt="${key}">`
+      ? `:<img class="vemoji" src="${emojiMap[key]}" alt="${key}">:`
       : placeholder
   );
+
+export const parseEmojiAfter = (content = ''): string =>
+  content.replace(/:(<img class="vemoji" [^>]+>):/g, '$1');
 
 export const parseMath = (content: string): string =>
   content
@@ -36,5 +39,5 @@ export const parseMarkdown = (
     smartypants: true,
   });
 
-  return marked(parseMath(parseEmoji(content, emojiMap)));
+  return parseEmojiAfter(marked(parseMath(parseEmojiPre(content, emojiMap))));
 };
