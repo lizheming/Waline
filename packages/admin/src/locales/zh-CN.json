@@ -37,6 +37,8 @@
   "waiting": "待审核",
   "spam": "垃圾",
   "mark as spam": "标记垃圾",
+  "disable sticky": "取消置顶",
+  "sticky": "置顶评论",
   "edit": "编辑",
   "reply": "回复",
   "delete": "删除",

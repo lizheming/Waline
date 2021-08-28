@@ -197,6 +197,16 @@ module.exports = class extends BaseRest {
           .filter(({ rid }) => !rid)
           .slice(pageOffset, pageOffset + pageSize);
 
+        rootComments.sort((cmtA, cmtB) => {
+          if (cmtA.sticky) {
+            return 1;
+          }
+          if (cmtB.sticky) {
+            return -1;
+          }
+          return 0;
+        });
+
         return this.json({
           page,
           totalPages: Math.ceil(rootCount / pageSize),

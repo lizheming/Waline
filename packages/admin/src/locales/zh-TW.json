@@ -37,6 +37,8 @@
   "waiting": "待審核",
   "spam": "垃圾",
   "mark as spam": "標記垃圾",
+  "disable sticky": "取消置頂",
+  "sticky": "置頂評論",
   "edit": "編輯",
   "reply": "回覆",
   "delete": "刪除",

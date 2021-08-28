@@ -37,6 +37,8 @@
   "waiting": "Waiting",
   "spam": "Spam",
   "mark as spam": "Mark as Spam",
+  "disable sticky": "Disable sticky",
+  "sticky": "Sticky",
   "edit": "Edit",
   "reply": "Reply",
   "delete": "Delete",
