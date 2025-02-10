@@ -372,6 +372,41 @@ module.exports = class extends think.Service {
     }).then((resp) => resp.json());
   }
 
+  async bark({ title, body }, self, parent) {
+    const { BARK_KEY, SITE_NAME, SITE_URL } = process.env;
+
+    if (!BARK_KEY) {
+      return false;
+    }
+
+    const data = {
+      self,
+      parent,
+      site: {
+        name: SITE_NAME,
+        url: SITE_URL,
+        postUrl: SITE_URL + self.url + '#' + self.objectId,
+      },
+    };
+
+    title = this.ctx.locale(title, data);
+    body = this.ctx.locale(body, data);
+
+    const payload = {
+      title,
+      body,
+      url: data.site.postUrl,
+    };
+
+    return fetch(`https://api.day.app/${BARK_KEY}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(payload),
+    }).then((resp) => resp.json());
+  }
+
   async discord({ title, content }, self, parent) {
     const { DISCORD_WEBHOOK, SITE_NAME, SITE_URL } = process.env;
 
@@ -522,11 +557,19 @@ module.exports = class extends think.Service {
       const pushplus = await this.pushplus({ title, content }, comment, parent);
       const discord = await this.discord({ title, content }, comment, parent);
       const lark = await this.lark({ title, content }, comment, parent);
+      const bark = await this.bark({ title, content }, comment, parent);
 
       if (
-        [wechat, qq, telegram, qywxAmWechat, pushplus, discord, lark].every(
-          think.isEmpty,
-        )
+        [
+          wechat,
+          qq,
+          telegram,
+          qywxAmWechat,
+          pushplus,
+          discord,
+          lark,
+          bark,
+        ].every(think.isEmpty)
       ) {
         mailList.push({ to: AUTHOR, title, content });
       }
