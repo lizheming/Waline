@@ -20,7 +20,7 @@
   "dependencies": {
     "@cloudbase/node-sdk": "^3.4.0",
     "@koa/cors": "^5.0.0",
-    "@mdit/plugin-katex": "0.16.6-cjs.0",
+    "@mdit/plugin-katex": "0.16.7",
     "@mdit/plugin-mathjax": "0.16.6-cjs.0",
     "@mdit/plugin-sub": "0.16.6-cjs.0",
     "@mdit/plugin-sup": "0.16.6-cjs.0",
