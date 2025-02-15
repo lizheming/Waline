@@ -65,7 +65,7 @@
     "markdownlint-cli2": "0.17.2",
     "nano-staged": "0.8.0",
     "postcss": "8.5.1",
-    "prettier": "3.5.0",
+    "prettier": "3.5.1",
     "rimraf": "6.0.1",
     "rollup": "4.34.2",
     "rollup-plugin-dts": "6.1.1",
