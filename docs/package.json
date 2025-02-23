@@ -20,7 +20,7 @@
     "vidstack": "1.12.13",
     "vue": "3.5.13",
     "vuepress": "2.0.0-rc.19",
-    "vuepress-shared": "2.0.0-rc.71",
+    "vuepress-shared": "2.0.0-rc.72",
     "vuepress-theme-hope": "2.0.0-rc.71"
   }
 }
