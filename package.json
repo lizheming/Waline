@@ -69,7 +69,7 @@
     "rimraf": "6.0.1",
     "rollup": "4.34.8",
     "rollup-plugin-dts": "6.1.1",
-    "rollup-plugin-esbuild": "6.2.0",
+    "rollup-plugin-esbuild": "6.2.1",
     "sass-embedded": "1.85.0",
     "sort-package-json": "2.14.0",
     "stylelint": "16.14.1",
